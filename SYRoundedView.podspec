@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'SYRoundedView'
-  s.version  = '1.0'
+  s.version  = '1.0.1'
   s.license  = 'Custom'
   s.summary  = 'A simple way to have rounded corners in your views'
   s.homepage = 'https://github.com/dvkch/SYRoundedView'

@@ -33,6 +33,8 @@ typedef enum: NSUInteger {
 @property (nonatomic, assign) CGFloat cornerRadius;
 @property (nonatomic, assign) CGFloat borderWidth;
 @property (nonatomic, strong) UIColor *borderColor;
+@property (nonatomic, assign) BOOL animatePaths;
+#warning animate paths option
 
 - (UIBezierPath *)maskPath;
 - (UIBezierPath *)drawnPath;
@@ -41,6 +43,8 @@ typedef enum: NSUInteger {
                       curve:(UIViewAnimationCurve)curve
                  animations:(void(^)(void))animations
                  completion:(void(^)(void))completion;
+
+- (void)applyChangesInASingleCommit:(void(^)(void))block;
 
 - (void)animateStrokeFrom:(CGFloat)from
                        to:(CGFloat)to

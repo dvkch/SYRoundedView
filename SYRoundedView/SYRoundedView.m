@@ -24,6 +24,8 @@
 - (void)addClockwiseCorner:(SYCorner)corner fromPoint:(CGPoint)from toPoint:(CGPoint)to;
 @end
 
+#warning fillLayer + strokeLayer instead of mask, to allow shadows
+
 @interface SYRoundedView ()
 @property (nonatomic, readonly) SYShapeLayer *shapeLayer;
 @property (nonatomic, readonly) SYShapeLayer *maskLayer;
@@ -306,16 +308,21 @@
         [CATransaction begin];
         [CATransaction setAnimationDuration:duration];
         [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:timing]];
-        self.inhibitAutoPathUpdates = YES;
-        animations();
-        [self updateDrawnPath];
-        [self updateMaskPath];
-        self.inhibitAutoPathUpdates = NO;
+        [self applyChangesInASingleCommit:animations];
         [CATransaction commit];
     } completion:^(BOOL finished) {
         if(completion)
             completion();
     }];
+}
+
+- (void)applyChangesInASingleCommit:(void(^)(void))block
+{
+    self.inhibitAutoPathUpdates = YES;
+    block();
+    [self updateDrawnPath];
+    [self updateMaskPath];
+    self.inhibitAutoPathUpdates = NO;
 }
 
 @end
@@ -345,6 +352,8 @@
             controlPoint2 = CGPointMake(to.x + (from.x - to.x) * 0.555, to.y);
             break;
         default:
+            controlPoint1 = from;
+            controlPoint2 = to;
             break;
     }
     

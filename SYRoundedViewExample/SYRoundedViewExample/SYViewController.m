@@ -62,6 +62,12 @@
     if(arc4random() % 2) corners |= SYCornerBottomLeft;
     if(arc4random() % 2) corners |= SYCornerBottomRight;
     
+    SYBorder borders = SYBorderNone;
+    if(arc4random() % 2) borders |= SYBorderTop;
+    if(arc4random() % 2) borders |= SYBorderLeft;
+    if(arc4random() % 2) borders |= SYBorderRight;
+    if(arc4random() % 2) borders |= SYBorderBottom;
+    
     [self.roundedView animateWithDuration:1 curve:UIViewAnimationCurveEaseInOut animations:^{
         self.roundedView.borderWidth  = arc4random() % 30;
         self.roundedView.borderColor  = arc4random() % 2 ? [UIColor redColor] : [UIColor blueColor];
@@ -69,7 +75,7 @@
         self.roundedView.drawnBorders = SYBorderAll;
         self.roundedView.drawnCorners = corners;
         self.roundedView.maskCorners  = corners;
-        [self.roundedView setFrame:CGRectInset(self.view.bounds, 30, 30)];
+        [self.roundedView setFrame:frame];
     } completion:nil];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

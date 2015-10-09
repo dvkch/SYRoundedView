@@ -24,7 +24,7 @@
 - (void)addClockwiseCorner:(SYCorner)corner fromPoint:(CGPoint)from toPoint:(CGPoint)to;
 @end
 
-#warning fillLayer + strokeLayer instead of mask, to allow shadows
+// TODO: fillLayer + strokeLayer instead of mask, to allow shadows
 
 @interface SYRoundedView ()
 @property (nonatomic, readonly) SYShapeLayer *shapeLayer;

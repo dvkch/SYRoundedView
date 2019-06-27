@@ -3,11 +3,7 @@ SYRoundedView
 
 A simple way to have rounded corners in your views
 
-Deprecated
+Semi-deprecated
 ==========
 
-This library doesn't seem to have been used by anyone else but me so I'm moving it to my SYKit collection :) If you need this pod you can still use it, or move to SYKit for the Swift version. See you there !
-
-Read the code, share it, update it, fork it, it's all yours now. 
-
-Please don't open an issue.
+Though I converted this library to Swift recently, motly for the fun of it and my own OCD, I am not using it anymore and I don't think any other person does either. Though I'm not formally deprecating this lib, expect low to no support on it.

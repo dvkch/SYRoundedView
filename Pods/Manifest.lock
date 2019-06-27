@@ -1,0 +1,16 @@
+PODS:
+  - SYRoundedView (1.1.0)
+
+DEPENDENCIES:
+  - SYRoundedView (from `./`)
+
+EXTERNAL SOURCES:
+  SYRoundedView:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  SYRoundedView: b67c60fcbd8286707942732eed99a91e1e79abbc
+
+PODFILE CHECKSUM: e072071433ff55ec91a36047a028aac066dcbb97
+
+COCOAPODS: 1.7.2
